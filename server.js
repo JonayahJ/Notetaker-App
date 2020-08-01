@@ -26,12 +26,12 @@ app.use(express.json());
 // ===========================================================
 // GET /notes - Should return the notes.html file.
 app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "notes.html"));
+    res.sendFile(path.join(__dirname, "public", "notes.html"));
   });
 
 // GET * - Should return the index.html file
 app.get("/*", function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "public", "index.html"));
   });
 
 
