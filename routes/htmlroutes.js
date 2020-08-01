@@ -2,10 +2,10 @@
 // =============================================================
 const path = require("path");
 
-// GET API
+// GET HTML
 // ===========================================================
 // GET /notes - Should return the notes.html file.
-module.exports = function (app) {  // why doesn't this work when I call the specific name down below?
+module.exports = app => {  // why doesn't this work when I call the specific filename down below?
     app.get("/notes", function(req, res) {
         // locating the file in the static public folder
         res.sendFile(path.join(__dirname, "../public/notes.html"));
