@@ -1,0 +1,49 @@
+// GET API
+// ===========================================================
+// GET /notes - Should return the notes.html file.
+app.get("/notes", function(req, res) {
+    // locating the file in the static public folder
+    res.sendFile(path.join(__dirname, "public", "notes.html"));
+  });
+
+// GET * - Should return the index.html file
+app.get("/*", function(req, res) {
+    // locating the file in the static public folder
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+  });
+
+
+// The application should have a db.json file on the backend that will be used to store and retrieve notes using the fs module.
+
+// Use fs.readFile() method to read the file 
+app.get("/public/notes", (req, res) =>
+    fs.readFile('/db/db.json', function read(err, data) {
+        if (err) {
+            throw err;
+        }
+        let content = data;
+    
+        console.log(content);  
+        
+        res.end(data)
+    })
+);
+
+// POST API - The application should have a db.json file on the backend that will be used to store and retrieve notes using the fs module.
+// ===========================================================
+
+
+
+// DELETE API
+// ===========================================================
+
+
+
+
+// Routes
+// ===========================================================
+
+
+
+
+
