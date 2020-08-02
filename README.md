@@ -12,8 +12,8 @@
   7. [Questions](#questions)
   
 
-  ## Issues
-I had a number of issues with this assignment.  Mainly, getting the notes to display in the noteList container, overwriting the...
+  ## Description
+  Click on the button on the static page to get started.  Add a new note by typing in the note title and note text fields and clicking save to create a list of all your notes. 
 
   
   ## Installation

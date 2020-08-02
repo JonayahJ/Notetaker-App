@@ -63,11 +63,10 @@ module.exports =  app => {
                 db.splice(i, 1); 
                 //console.log(db)
 
-                //do a .then fs writefile (bc it's not showing up on the page)
-                fs.writeFile("../db/db.json", JSON.stringify(db), function(err) 
-                {
-                    console.log("done")
-                    // returns noteList file, can see in POSTman
+                // tutor said to do a .then fs writefile (bc it's not showing up on the page, but that's not working either)
+                // 3. update the db.json (it works in the terminal...)
+                fs.writeFile("../db/db.json", JSON.stringify(db), function(err){
+                    console.log("You did it!")
                 });
             }   
         }
