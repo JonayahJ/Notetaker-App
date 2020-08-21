@@ -9,7 +9,7 @@ const db = require("../db/db.json");
 module.exports =  app => {
     // read file
     app.get("/api/notes", (req, res) => 
-        fs.readFile("db/db.json", function read(err, data) {
+        fs.readFile("db/db.json", "utf8", function read(err, data) {
             // error statements
             if (err) {
                 console.log("You messed up... again");
@@ -30,6 +30,7 @@ module.exports =  app => {
     // POST API
      // send new note
     app.post("/api/notes", (req, res) => { 
+   
         // create a new note
         let newNote =
             {
@@ -39,15 +40,17 @@ module.exports =  app => {
 
         // setting a unique id
         newNote.id = uuid();
+        
         //db is type array
         db.push(newNote);
-        // console.log(db);
-
-        fs.writeFile("../db/db.json", JSON.stringify(db), function(err) {
-            console.log("done")
-            res.json(db);
-        });
-    
+        console.log(db);
+        fs.writeFile("./db/db.json", JSON.stringify(db), "utf8", function(err) {
+            console.log(err)
+        })
+        // .then(function(db){
+        //     res.json(db)
+        // })
+        res.json(db);
     });
 
     // DELETE API
@@ -63,12 +66,13 @@ module.exports =  app => {
                 db.splice(i, 1); 
                 //console.log(db)
 
-                // tutor said to do a .then fs writefile (bc it's not showing up on the page, but that's not working either)
+
                 // 3. update the db.json (it works in the terminal...)
-                fs.writeFile("../db/db.json", JSON.stringify(db), function(err){
+                fs.writeFile("./db/db.json", JSON.stringify(db), function(err){
                     console.log("You did it!")
                 });
             }   
         }
+        res.send();
     });
 };
